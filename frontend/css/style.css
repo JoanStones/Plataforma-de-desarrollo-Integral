@@ -1,0 +1,226 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* el padding ya no suma tamaño extra a los elementos */
+}
+
+body {
+  font-family: 'Inter', sans-serif; /* fuente por defecto para TODO el texto */
+  color: #0f2a4a;
+}
+
+/* --- a partir de aquí, tu CSS que ya tenías --- */
+
+.header {
+  background-color: #f7c948;
+  padding: 16px 40px;
+}
+
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 64px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* espacio entre el menú y el botón Ingresar */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;         /* espacio entre el ícono y la palabra "InDaga" */
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  color: #0f2a4a;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.logo-icon {
+  height: 1em;      /* se ajusta automáticamente al tamaño de letra de "InDaga" */
+  width: auto;
+  display: block;
+}
+
+.nav {
+  display: flex;
+  gap: 56px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #0f2a4a;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.btn-ingresar {
+  background-color: #0f2a4a;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.hero {
+  padding: 48px 40px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #f7c948;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero h2 {
+  font-family: 'Sora', sans-serif;
+  font-size: 40px;
+  margin: 0 0 12px;
+}
+
+.hero > p {
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.buscador {
+  display: flex;
+  gap: 12px;
+}
+
+.buscador input {
+  flex: 1;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 10px;
+  background-color: #eef1f5;
+  font-size: 15px;
+  font-family: inherit; /* los inputs NO heredan la fuente del body por defecto; hay que forzarlo */
+}
+
+.buscador button {
+  background-color: #f28b82;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* NUEVO: le faltaba estilo por completo */
+#oportunidades h2 {
+  font-family: 'Sora', sans-serif;
+  font-size: 28px;
+  max-width: 1200px;
+  margin: 24px auto 20px;
+  padding: 0 40px;
+}
+
+.filtros {
+  display: flex;
+  gap: 12px;
+  max-width: 1200px;
+  margin: 0 auto 24px;
+  padding: 0 40px;
+}
+
+.filtro {
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: none;
+  background-color: #e6e6e6;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.filtro--activo {
+  background-color: #0f2a4a;
+  color: white;
+}
+
+.grid-oportunidades {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px 40px;
+}
+
+.card-oportunidad {
+  background-color: #7fa8c9;
+  border-radius: 8px;
+  padding: 20px;
+  min-height: 200px;
+}
+
+/* NUEVO: los textos dentro de la tarjeta tampoco tenían estilo propio */
+.card-oportunidad p {
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.card-oportunidad h3 {
+  font-family: 'Sora', sans-serif;
+  font-size: 18px;
+  margin: 6px 0;
+}
+
+.card-oportunidad .fecha {
+  font-family: 'JetBrains Mono', monospace; /* le da un toque "de datos" a la fecha, ya que la importaste y no la usabas en ningún lado */
+  font-size: 13px;
+}
+
+/* Los botones y links deben reaccionar al pasar el mouse — ahora mismo son estáticos */
+.nav a,
+.filtro,
+.btn-ingresar,
+.buscador button {
+  transition: all 0.2s ease; /* suaviza cualquier cambio de color/tamaño */
+}
+
+.nav a:hover {
+  color: #1E6FA8;
+}
+
+.filtro:hover {
+  background-color: #d6d6d6;
+}
+
+.filtro--activo:hover {
+  background-color: #0f2a4a; /* que no cambie al pasar el mouse, ya está "activo" */
+}
+
+.btn-ingresar:hover {
+  background-color: #1a3f66;
+}
+
+.buscador button:hover {
+  background-color: #ef7a70;
+}
+
+/* Las tarjetas se sienten más "vivas" con un pequeño efecto al pasar el mouse */
+.card-oportunidad {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-oportunidad:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(15, 42, 74, 0.15);
+}
